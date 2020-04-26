@@ -1,5 +1,7 @@
+// Import libraries for component
 import React from "react";
 
+// Create component that will take in data props to populate Cards
 const Card = ({ item, channel }) => {
   return (
     <li className="card">
@@ -16,7 +18,7 @@ const Card = ({ item, channel }) => {
             <i>{channel}</i>
           </p>
           <div className="card-metrics">
-            {item.views} • {item.published}
+            {item.views} views • {item.published}
           </div>
       </a>
     </li>
