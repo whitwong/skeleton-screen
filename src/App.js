@@ -1,13 +1,20 @@
+// Import libraries, CSS, data, components, and hooks
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import dummyData from "./data";
 import CardList from "./components/CardList";
 import SkeletonCard from "./components/SkeletonCard";
 
+// Create App container to display Skeleton loading screen when loading is set to true.
+// Otherwise, display data via sections, CardList, and Cards
 const App = () => {
+  // React hooks
+  // videos initially set to empty array, and setVideos is a function that is called to update state with dummy data.
+  // loading is initially set to false, and setLoaing is a function that is called to update state to true once setTimeout is complete.
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // Effect hook to call useState functions on page render and DOM updates
   useEffect(() => {
     setLoading(true);
     const timer = setTimeout(() => {
@@ -17,6 +24,7 @@ const App = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // When loading, render SkeletonCard. When not laoding, render CardList and Cards
   return (
     <div className="App">
       {loading && <SkeletonCard />}
@@ -36,32 +44,3 @@ const App = () => {
 };
 
 export default App;
-
-
-// ***** Original file contents *****
-// import React from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
